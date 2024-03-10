@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card";
+import { Skeleton } from "./ui/skeleton";
 
 interface User {
   name: {
@@ -44,7 +45,13 @@ export default function RandomUser() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (<div className="flex items-center space-x-4">
+      <Skeleton className="h-32 w-44 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>);
   }
 
   if (error) {

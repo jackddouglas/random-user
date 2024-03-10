@@ -46,7 +46,7 @@ export default function Home() {
       </Tabs>
       {team !== -1 && (team === win ?
         (<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">You&apos;re right! Team {team + 1} won!</h2>) :
-        (<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">Bad</h2>))}
+        (<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">Idiot</h2>))}
     </>
   );
 }

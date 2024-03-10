@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card";
 
 interface User {
@@ -14,6 +14,8 @@ interface User {
   picture: {
     large: string;
   };
+  email: string;
+  phone: string;
 }
 
 export default function RandomUser() {
@@ -53,13 +55,24 @@ export default function RandomUser() {
         <HoverCardTrigger>
           <Card>
             <CardHeader>
-              <CardTitle>{user.name.first} {user.name.last}</CardTitle>
-              <CardDescription>{user.gender}, {user.dob.age}</CardDescription>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <img src={user.picture.large} alt="Picture of random user" className="rounded-lg" />
+                </div>
+                <div>
+                  <CardTitle>{user.name.first} {user.name.last}</CardTitle>
+                  <CardDescription>{user.gender}, {user.dob.age}</CardDescription>
+                </div>
+              </div>
             </CardHeader>
           </Card>
         </HoverCardTrigger>
         <HoverCardContent>
-          <img src={user.picture.large} alt="Picture of random user" />
+          <Card>
+            <CardContent>
+              {user.phone} <br /> {user.email}
+            </CardContent>
+          </Card>
         </HoverCardContent>
       </HoverCard>
 
